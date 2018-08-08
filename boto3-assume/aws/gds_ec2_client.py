@@ -1,7 +1,8 @@
 # GdsEc2Client
 # extends GdsAwsClient 
 # implements aws ec2 api queries 
-from aws.GdsAwsClient import GdsAwsClient
+from gds_aws_client import GdsAwsClient
+
 
 class GdsEc2Client(GdsAwsClient):
     

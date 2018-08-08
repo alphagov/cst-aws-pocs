@@ -5,6 +5,7 @@ import boto3
 import json
 import configparser
 
+
 class GdsAwsClient:
 
     # initialise empty dictionaries for clients and assume role sessions

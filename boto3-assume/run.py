@@ -13,12 +13,13 @@
 # it then lists all the ingress and egresss cidrs for security 
 # groups in all regions specified in the regions array
 
-from aws.GdsAwsClient import GdsAwsClient
-from aws.GdsS3Client import GdsS3Client
-from aws.GdsEc2Client import GdsEc2Client
-from aws.GdsSupportClient import GdsSupportClient
+from aws.gds_aws_client import GdsAwsClient
+from aws.gds_s3_client import GdsS3Client
+from aws.gds_ec2_client import GdsEc2Client
+from aws.gds_support_client import GdsSupportClient
 import json
 from optparse import OptionParser
+
 
 # allow user to supply email and token as script options
 parser = OptionParser()

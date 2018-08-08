@@ -2,7 +2,8 @@
 # extends GdsAwsClient 
 # implements aws s3 and s3api endpoint queries
 
-from aws.GdsAwsClient import GdsAwsClient
+from gds_aws_client import GdsAwsClient
+
 
 class GdsS3Client(GdsAwsClient):
     
