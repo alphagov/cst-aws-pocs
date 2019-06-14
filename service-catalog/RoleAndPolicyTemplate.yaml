@@ -1,0 +1,36 @@
+---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Create a role and a policy for testing
+Resources:
+
+  ServiceCatalogReadOnlyRoleTest:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          -
+            Effect: Allow
+            Principal:
+              Service:
+                - s3.amazonaws.com
+            Action:
+              - "sts:AssumeRole"
+      RoleName: ServiceCatalogReadOnlyRoleTest
+
+  ServiceCatalogReadOnlyPolicyTest:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: ServiceCatalogTestPolicy
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          -
+            Effect: Allow
+            Action:
+              - "S3:CreateBucket"
+            Resource:
+              - "*"
+      PolicyName: ServiceCatalogGetBucketsTest
+      Roles:
+        - !Ref ServiceCatalogReadOnlyRoleTest

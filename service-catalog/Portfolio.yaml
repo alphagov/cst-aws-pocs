@@ -1,0 +1,35 @@
+---
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Create Role and Policy
+Resources:
+
+  ServiceCatalogPortfolioTest:
+    Type: AWS::ServiceCatalog::Portfolio
+    Properties:
+      DisplayName: RoleAndPolicyTest
+      ProviderName: Detnon
+      Tags:
+        -
+          Key: Name
+          Value: Cloud Formation Test
+
+
+  ServiceCatalogRoleAndPolicyTest:
+    Type: AWS::ServiceCatalog::CloudFormationProduct
+    Properties:
+      Description: Test Product using Cloud Formation
+      Name: Role and Policy
+      Owner: Me
+      ProvisioningArtifactParameters:
+        -
+          Info: {"LoadTemplateFromURL": "https://s3.amazonaws.com/sctemplatebucket/RoleAndPolicyTemplate.yaml"}
+      Tags:
+        -
+          Key: Name
+          Value: Cloud Formation Test
+
+  ServiceCatalogPortfolioAssociationTest:
+    Type: AWS::ServiceCatalog::PortfolioProductAssociation
+    Properties:
+      PortfolioId: !Ref ServiceCatalogPortfolioTest
+      ProductId: !Ref ServiceCatalogRoleAndPolicyTest
